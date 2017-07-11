@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+*.suo
+*.db
+*.pdb
+*.tlog
+*.user
+VkComputeSample/x64/Debug/vc140.idb
+*.log
+x64/Debug/VkComputeSample.ilk
+*.idb
