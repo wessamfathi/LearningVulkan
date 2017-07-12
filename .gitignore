@@ -39,3 +39,6 @@ VkComputeSample/x64/Debug/vc140.idb
 *.log
 x64/Debug/VkComputeSample.ilk
 *.idb
+*.opendb
+*.tmp
+*.ilk
