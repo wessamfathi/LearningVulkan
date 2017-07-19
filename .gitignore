@@ -42,3 +42,4 @@ x64/Debug/VkComputeSample.ilk
 *.opendb
 *.tmp
 *.ilk
+*.ipch
