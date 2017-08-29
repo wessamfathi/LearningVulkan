@@ -46,3 +46,5 @@ x64/Debug/VkComputeSample.ilk
 *.db-shm
 *.db-wal
 *.opendb
+*.db-shm
+*.db-wal
