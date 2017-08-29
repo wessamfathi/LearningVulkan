@@ -43,3 +43,6 @@ x64/Debug/VkComputeSample.ilk
 *.tmp
 *.ilk
 *.ipch
+*.db-shm
+*.db-wal
+*.opendb
