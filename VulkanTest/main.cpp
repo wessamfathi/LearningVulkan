@@ -73,6 +73,9 @@ private:
 	// handle to the present queue
 	VkQueue presentQueue;
 
+	// handle tot the trasnfer queue
+	VkQueue transferQueue;
+
 	// handles to the swap chain images
 	std::vector<VkImage> swapChainImages;
 
@@ -95,6 +98,8 @@ private:
 
 	VkCommandPool commandPool;
 
+	VkCommandPool transferPool;
+
 	std::vector<VkCommandBuffer> commandBuffers;
 
 	VkSemaphore imageAvailableSemaphore;
@@ -108,10 +113,11 @@ private:
 	{
 		int graphicsFamily = -1;
 		int presentFamily = -1;
+		int transferFamily = -1;
 
 		bool isComplete()
 		{
-			return graphicsFamily >= 0 && presentFamily >= 0;
+			return graphicsFamily >= 0 && presentFamily >= 0 && transferFamily >= 0;
 		}
 	};
 
@@ -519,6 +525,11 @@ private:
 				indices.graphicsFamily = i;
 			}
 
+			if (queueFamily.queueCount > 0 && queueFamily.queueFlags & VK_QUEUE_TRANSFER_BIT && !(queueFamily.queueFlags & VK_QUEUE_GRAPHICS_BIT))
+			{
+				indices.transferFamily = i;
+			}
+
 			VkBool32 presentSupport = false;
 			vkGetPhysicalDeviceSurfaceSupportKHR(device, i, surface, &presentSupport);
 
@@ -544,7 +555,7 @@ private:
 		QueueFamilyIndices indices = findQueueFamilies(physicalDevice);
 
 		std::vector<VkDeviceQueueCreateInfo> queueCreateInfos;
-		std::set<int> uniqueQueueFamilies = { indices.graphicsFamily, indices.presentFamily };
+		std::set<int> uniqueQueueFamilies = { indices.graphicsFamily, indices.presentFamily, indices.transferFamily };
 
 		float queuePriority = 1.0f;
 
@@ -586,6 +597,7 @@ private:
 
 		vkGetDeviceQueue(device, indices.graphicsFamily, 0, &graphicsQueue);
 		vkGetDeviceQueue(device, indices.presentFamily, 0, &presentQueue);
+		vkGetDeviceQueue(device, indices.transferFamily, 0, &transferQueue);
 	}
 
 	/** Actually create our swap chain with the best possible settings */
@@ -969,11 +981,16 @@ private:
 
 	void createVertexBuffer()
 	{
+		QueueFamilyIndices indices = findQueueFamilies(physicalDevice);
+		uint32_t queueFamilyIndices[] = { (uint32_t)indices.graphicsFamily, (uint32_t)indices.transferFamily };
+
 		VkBufferCreateInfo bufferInfo = {};
 		bufferInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
 		bufferInfo.size = sizeof(vertices[0]) * vertices.size();
 		bufferInfo.usage = VK_BUFFER_USAGE_VERTEX_BUFFER_BIT;
-		bufferInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+		bufferInfo.sharingMode = VK_SHARING_MODE_CONCURRENT;
+		bufferInfo.queueFamilyIndexCount = 2;
+		bufferInfo.pQueueFamilyIndices = queueFamilyIndices;
 
 		if (vkCreateBuffer(device, &bufferInfo, nullptr, &vertexBuffer) != VK_SUCCESS)
 		{
