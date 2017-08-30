@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\VulkanSDK\1.0.51.0\Include;C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\include;C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glm;$(IncludePath)</IncludePath>
+    <IncludePath>C:\VulkanSDK\1.0.54.0\Include;C:\VulkanSDK\1.0.51.0\Include;C:\Users\Wessam\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\include;C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\include;C:\Users\Wessam\Documents\Visual Studio 2017\Libraries\glm;C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glm;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -82,7 +82,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\VulkanSDK\1.0.51.0\Include;C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\include;C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glm;$(IncludePath)</IncludePath>
+    <IncludePath>C:\VulkanSDK\1.0.54.0\Include;C:\VulkanSDK\1.0.51.0\Include;C:\Users\Wessam\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\include;C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\include;C:\Users\Wessam\Documents\Visual Studio 2017\Libraries\glm;C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glm;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -94,7 +94,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\VulkanSDK\1.0.51.0\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\VulkanSDK\1.0.54.0\Lib;C:\VulkanSDK\1.0.51.0\Lib;C:\Users\Wessam\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -140,7 +140,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\VulkanSDK\1.0.51.0\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\wfathi\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\VulkanSDK\1.0.54.0\Lib;C:\VulkanSDK\1.0.51.0\Lib;C:\Users\Wessam\Documents\Visual Studio 2017\Libraries\glfw-3.2.1.bin.WIN64\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
